@@ -141,15 +141,16 @@ if __name__ == "__main__":
     callbacks = []
     callbacks.append(TensorboardCallback(log_dir=os.path.join(args.model_dir, "logs")))
 
-    if args.hub_token:
-        callbacks.append(
-            PushToHubCallback(
-                output_dir=args.model_dir,
-                tokenizer=tokenizer,
-                hub_model_id=args.hub_model_id,
-                hub_token=args.hub_token,
-            )
-        )
+    # TODO: add with new DLC supporting Transformers 4.14.1
+    # if args.hub_token:
+    #     callbacks.append(
+    #         PushToHubCallback(
+    #             output_dir=args.model_dir,
+    #             tokenizer=tokenizer,
+    #             hub_model_id=args.hub_model_id,
+    #             hub_token=args.hub_token,
+    #         )
+    #     )
 
     # Training
     logger.info("*** Train ***")
